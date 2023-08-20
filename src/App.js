@@ -1,7 +1,5 @@
 import React from "react";
-import "./categories.styles.scss";
-import CategoryItem from "./components/category-item/category-item.component.jsx";
-
+import CategoryList from "./components/category-list/category-list.component.jsx";
 const App = () => {
 	const categories = [
 		{
@@ -36,16 +34,7 @@ const App = () => {
 		},
 	];
 
-	return (
-		<div className="categories-container">
-			{/* Inside our Categories Container */}
-			{categories.map((category) => {
-				// console.log(category);
-				return <CategoryItem key={category.id} category={category} />;
-			})}
-			;
-		</div>
-	);
+	return <CategoryList categories={categories} />;
 };
 
 export default App;
