@@ -1,6 +1,7 @@
 import React from "react";
 import "./categories.styles.scss";
 import CategoryItem from "./components/category-item/category-item.component.jsx";
+
 const App = () => {
 	const categories = [
 		{
@@ -38,14 +39,9 @@ const App = () => {
 	return (
 		<div className="categories-container">
 			{/* Inside our Categories Container */}
-			{categories.map(({ category }) => {
-				return (
-					<CategoryItem
-						key={category.id}
-						title={category.title}
-						imageUrl={category.imageUrl}
-					/>
-				);
+			{categories.map((category) => {
+				// console.log(category);
+				return <CategoryItem key={category.id} category={category} />;
 			})}
 			;
 		</div>
