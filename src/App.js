@@ -33,7 +33,6 @@ const App = () => {
 				"https://raw.githubusercontent.com/njayem/FreshStreetWearCo./main/public/assets/Mens.png",
 		},
 	];
-
 	return <CategoryList categories={categories} />;
 };
 
