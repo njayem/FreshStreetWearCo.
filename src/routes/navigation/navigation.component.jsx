@@ -2,7 +2,7 @@
 // extra nodes to the DOM (we dont want a wraping div)
 import { Fragment } from "react";
 import { Outlet, Link } from "react-router-dom";
-import { ReactComponent as CrownLogo } from "../../assets/crown.svg";
+import { ReactComponent as Logo } from "../../assets/logo.svg";
 import "./navigation.styles.scss";
 
 const Navigation = () => {
@@ -10,7 +10,7 @@ const Navigation = () => {
 		<Fragment>
 			<div className="navigation">
 				<Link className="logo-container" to="/">
-					<CrownLogo className="logo" />
+					<Logo className="logo" />
 				</Link>
 
 				<div className="nav-links-container">
