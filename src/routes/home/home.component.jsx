@@ -9,31 +9,31 @@ const Home = () => {
 			id: 1,
 			title: "hats",
 			imageUrl:
-				"https://raw.githubusercontent.com/njayem/FreshStreetWearCo./blob/main/src/assets/Hats.png",
+				"https://raw.githubusercontent.com/njayem/FreshStreetWearCo./main/src/assets/Hats.png",
 		},
 		{
 			id: 2,
 			title: "jackets",
 			imageUrl:
-				"https://raw.githubusercontent.com/njayem/FreshStreetWearCo./blob/main/src/assets/Jackets.png",
+				"https://raw.githubusercontent.com/njayem/FreshStreetWearCo./main/src/assets/Jackets.png",
 		},
 		{
 			id: 3,
 			title: "sneakers",
 			imageUrl:
-				"https://raw.githubusercontent.com/njayem/FreshStreetWearCo./blob/main/src/assets/Sneakers.png",
+				"https://raw.githubusercontent.com/njayem/FreshStreetWearCo./main/src/assets/Sneakers.png",
 		},
 		{
 			id: 4,
 			title: "womens",
 			imageUrl:
-				"https://github.com/njayem/FreshStreetWearCo./blob/main/src/assets/Womens.png",
+				"https://raw.githubusercontent.com/njayem/FreshStreetWearCo./main/src/assets/Womens.png",
 		},
 		{
 			id: 5,
 			title: "mens",
 			imageUrl:
-				"https://raw.githubusercontent.com/njayem/FreshStreetWearCo./blob/main/src/assets/Mens.png",
+				"https://raw.githubusercontent.com/njayem/FreshStreetWearCo./main/src/assets/Mens.png",
 		},
 	];
 	return <CategoryList categories={categories} />;
