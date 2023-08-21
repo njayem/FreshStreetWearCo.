@@ -4,6 +4,7 @@ import Home from "./routes/home/home.component.jsx";
 import { Routes, Route, Outlet } from "react-router-dom";
 
 import Navigation from "./routes/navigation/navigation.component.jsx";
+import SignIn from "./routes/sign-in/sign-in.component.jsx";
 
 const Shop = () => {
 	return (
@@ -24,8 +25,9 @@ const App = () => {
 				{/* writing index means that this is the default route
 				 that will be rendered when the URL path matches
 				 the parent route aka '/' */}
-				<Route index element={<Home />}></Route>
-				<Route path="shop" element={<Shop />}></Route>
+				<Route index element={<Home />} />
+				<Route path="shop" element={<Shop />} />
+				<Route path="sign-in" element={<SignIn />} />
 			</Route>
 		</Routes>
 	);
