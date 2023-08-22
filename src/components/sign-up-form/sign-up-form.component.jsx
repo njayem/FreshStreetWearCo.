@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import "./sign-up.styles.scss";
+import "./sign-up-form.styles.scss";
 
 import FormInput from "../form-input/form-input.component";
 
@@ -20,7 +20,7 @@ const initialFormFields = {
 	confirmPassword: "",
 };
 
-const SignUp = () => {
+const SignUpForm = () => {
 	const [formFields, setFormFields] = useState(initialFormFields);
 	const { displayName, email, password, confirmPassword } = formFields;
 
@@ -132,4 +132,4 @@ const SignUp = () => {
 		</div>
 	);
 };
-export default SignUp;
+export default SignUpForm;

@@ -1,8 +1,5 @@
 import CategoryList from "../../components/category-list/category-list.component";
 
-// This allows us to render the nested routes
-import { Outlet } from "react-router-dom";
-
 const Home = () => {
 	const categories = [
 		{
