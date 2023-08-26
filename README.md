@@ -1,4 +1,4 @@
-# RoboFriends
+# FreshStreetWearCo.
 
 To run the project:
 
