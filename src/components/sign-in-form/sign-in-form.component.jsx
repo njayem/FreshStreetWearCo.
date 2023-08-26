@@ -23,6 +23,10 @@ const SignInForm = () => {
 	const [formFields, setFormFields] = useState(initialFormFields);
 	const { email, password } = formFields;
 
+	// We are using the useContext hook to get access to the value
+	// We then destruct the property we want from the value object
+	// const { setCurrentUser } = useContext(UserContext);
+
 	// ********* 0. resetFormFields *********
 	const resetFormFields = () => {
 		return setFormFields(initialFormFields);
@@ -44,9 +48,9 @@ const SignInForm = () => {
 	// sign in with Google and log the response to the console
 	const signInWithGoogle = async () => {
 		// Deconstruct the user object from the response
-		const { user } = await signInWithGooglePopup();
-		const userDocRef = await createUserDocumentFromAuth(user);
-		console.log(userDocRef);
+		await signInWithGooglePopup();
+
+		//setCurrentUser(user);
 	};
 	// ********* 00. resetFormFields *********
 
@@ -57,11 +61,16 @@ const SignInForm = () => {
 		event.preventDefault();
 
 		try {
-			const response = await signInAuthUserWithEmailAndPassword(
+			const { user } = await signInAuthUserWithEmailAndPassword(
 				email,
 				password
 			);
-			console.log(response);
+			// Once we have the USER AUTH OBJECT from the response
+			// We call setCurrentUser and pass in the user object
+			// This will update the currentUser state in the UserContext
+			//setCurrentUser(user);
+			//console.log("setCurrentUser: ", user);
+
 			resetFormFields();
 		} catch (error) {
 			switch (error.code) {

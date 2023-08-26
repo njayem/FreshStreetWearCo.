@@ -24,6 +24,8 @@ const SignUpForm = () => {
 	const [formFields, setFormFields] = useState(initialFormFields);
 	const { displayName, email, password, confirmPassword } = formFields;
 
+	// const { setCurrentUser } = useContext(UserContext);
+
 	// ********* 0. resetFormFields *********
 	const resetFormFields = () => {
 		return setFormFields(initialFormFields);
@@ -46,14 +48,21 @@ const SignUpForm = () => {
 				email,
 				password
 			);
+
+			// Update the (currentUser) state within (UserContext)
+			// with the userAuth object
+			//	setCurrentUser(user);
+
 			// WE CALL THE createUserDocumentFromAuth FUNCTION HERE
 			// TO CREATE A NEW USER DOCUMENT IN THE DATABASE
 			// WE PASS THE userAuth OBJECT AS THE FIRST ARGUMENT
 			// AND WE PASS THE displayName AS THE SECOND ARGUMENT
 			// TO MAKE SURE THAT THE displayName IS STORED INSIDE THE
 			// USER DOCUMENT
-			console.log(user);
+			//	console.log(user);
+
 			await createUserDocumentFromAuth(user, { displayName });
+
 			resetFormFields();
 		} catch (error) {
 			if (error.code === "auth/email-already-in-use") {
@@ -71,6 +80,8 @@ const SignUpForm = () => {
 	// of the input field that is being changed
 	const handleChange = (event) => {
 		const { name, value } = event.target;
+		// the (...formFields) will spread out the existing formFields
+		// and copy them into the new object
 		setFormFields({ ...formFields, [name]: value });
 	};
 	// ********* 2. handleChange (state) *********

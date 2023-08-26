@@ -8,6 +8,8 @@ import {
 	GoogleAuthProvider,
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
+	signOut,
+	onAuthStateChanged,
 } from "firebase/auth";
 
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
@@ -65,18 +67,18 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
 // IN ORDER TO STORE IT INSIDE THE USER DOCUMENT
 export const createUserDocumentFromAuth = async (
 	userAuth,
-	additionalInformation = {}
+	additionalInformation = {} //default value is an empty object
 ) => {
 	if (!userAuth) return;
 	// WE CERATE A REFERENCE TO THE USER DOCUMENT
 	// INSIDE THE FIRESTORE DATABASE
 	const userDocRef = doc(db, "users", userAuth.uid);
-	console.log(userDocRef);
+	//console.log(userDocRef);
 
 	// WE GET THE USER DOCUMENT USING THE FIRESTORE DATABASE REFERENCE
 	const userSnapshot = await getDoc(userDocRef);
-	console.log(userSnapshot);
-	console.log(userSnapshot.exists());
+	// console.log(userSnapshot);
+	// console.log(userSnapshot.exists());
 
 	// IF THE USER DOCUMENT DOES NOT EXIST
 	// WE DESCTRUCTURE THE userAuth OBJECT
@@ -113,6 +115,33 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 	return await signInWithEmailAndPassword(auth, email, password);
 };
 // ********* 5. signInAuthUserWithEmailAndPassword *********
+
+// ********* 6. signOut *********
+export const signOutUser = async () => {
+	await signOut(auth);
+};
+// ********* 6. signOut *********
+
+// ********* 7. onAuthStateChanged *********
+export const onAuthStateChangedListener = (callback) => {
+	// onAuthStateChanged calls the callback function
+	// every time the authentication state (auth) changes
+	// (user logs in or logs out)
+	// Once (auth) changes, the callback function is called
+	// and the user object is passed as an argument
+	// which is done automatically by the onAuthStateChanged method
+
+	// Calling the onAuthStateChanged method
+	// automatically created a listener for us
+	// and sets the next property to this callback fn
+	// listenerModel = {
+	//   next: callback,
+	//   error: "",
+	//   complete: ""
+	// }
+	onAuthStateChanged(auth, callback);
+};
+// ********* 7. onAuthStateChanged *********
 
 // ********* USER AUTHENTICATION & USER DOCUMENT RECAP *********
 // ALL 3 METHODS
