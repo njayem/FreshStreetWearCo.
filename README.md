@@ -17,3 +17,17 @@ To run the project:
   - Go to Checkout
   - Add/Remove Cart Contents
   - Get the Total
+ 
+## Preview
+
+![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/Home.png)
+
+![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/SignUp-SignIn.png)
+
+![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/Shop-Page.png)
+
+![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/Hats-Page.png)
+
+![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/Checkout.png)
+
+
