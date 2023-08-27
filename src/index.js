@@ -13,7 +13,7 @@ import App from "./App.js";
 // example: export default x; // default export
 import { UserProvider } from "./contexts/user.context.jsx";
 
-import { ProductsProvider } from "./contexts/products.context.jsx";
+import { CategoriesProvider } from "./contexts/categories.context.jsx";
 
 import { CartProvider } from "./contexts/cart.context.jsx";
 
@@ -26,11 +26,11 @@ root.render(
 			<UserProvider>
 				{/* App now has access to the "context" value */}
 				{/* The child has access to the parent (never vice-versa) */}
-				<ProductsProvider>
+				<CategoriesProvider>
 					<CartProvider>
 						<App />
 					</CartProvider>
-				</ProductsProvider>
+				</CategoriesProvider>
 			</UserProvider>
 		</BrowserRouter>
 	</React.StrictMode>

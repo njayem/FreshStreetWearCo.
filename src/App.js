@@ -22,7 +22,10 @@ const App = () => {
 				 that will be rendered when the URL path matches
 				 the parent route aka '/' */}
 				<Route index element={<Home />} />
-				<Route path="shop" element={<Shop />} />
+				{/* WE WANT TO MAKE THE SHOP ROUTE NESTABLE
+				THIS IS SAYING: WHATEVER WILD CARD IS PASSED IN
+				AFTER THE SHOP ROUTE, RENDER THE SHOP COMPONENT*/}
+				<Route path="shop/*" element={<Shop />} />
 				<Route path="auth" element={<Authentication />} />
 				<Route path="checkout" element={<Checkout />} />
 			</Route>

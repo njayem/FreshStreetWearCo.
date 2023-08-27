@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import "./sign-up-form.styles.scss";
+import { SignUpContainer } from "./sign-up-form.styles.jsx";
 
 import FormInput from "../form-input/form-input.component";
 
@@ -87,7 +87,7 @@ const SignUpForm = () => {
 	// ********* 2. handleChange (state) *********
 
 	return (
-		<div className="sign-up-container">
+		<SignUpContainer>
 			<h2>Don't have an account?</h2>
 			<span>Sign Up with your Email and Password!</span>
 			<form onSubmit={handleSubmit}>
@@ -140,7 +140,7 @@ const SignUpForm = () => {
 
 				<Button type="submit">Sign Up</Button>
 			</form>
-		</div>
+		</SignUpContainer>
 	);
 };
 export default SignUpForm;

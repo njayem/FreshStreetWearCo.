@@ -1,10 +1,13 @@
 import { useState } from "react";
 
-import "./sign-in-form.styles.scss";
+import {
+	SignInContainer,
+	ButtonsContainer,
+} from "../sign-in-form/sign-in-form.styles.jsx";
 
-import FormInput from "../form-input/form-input.component";
+import FormInput from "../form-input/form-input.component.jsx";
 
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component.jsx";
 
 import {
 	createUserDocumentFromAuth,
@@ -105,7 +108,7 @@ const SignInForm = () => {
 	// ********* 2. handleChange (state) *********
 
 	return (
-		<div className="sign-up-container">
+		<SignInContainer>
 			<h2>Already have an account?</h2>
 			<span>Sign In with your Email and Password!</span>
 			<form onSubmit={handleSubmit}>
@@ -130,14 +133,17 @@ const SignInForm = () => {
 						onChange: handleChange,
 					}}
 				/>
-				<div className="buttons-container">
+				<ButtonsContainer>
 					<Button type="submit">Sign In</Button>
-					<Button buttonType="google" type="button" onClick={signInWithGoogle}>
+					<Button
+						buttonType={BUTTON_TYPE_CLASSES.google}
+						type="button"
+						onClick={signInWithGoogle}>
 						Sign In With Google
 					</Button>
-				</div>
+				</ButtonsContainer>
 			</form>
-		</div>
+		</SignInContainer>
 	);
 };
 export default SignInForm;

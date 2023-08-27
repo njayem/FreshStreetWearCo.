@@ -13,7 +13,13 @@ import { CartContext } from "../../contexts/cart.context";
 
 import { Outlet, Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
-import "./navigation.styles.scss";
+
+import {
+	NavigationContainer,
+	NavLinks,
+	NavLink,
+	LogoContainer,
+} from "./navigation.styles.jsx";
 
 const Navigation = () => {
 	// Hook into the context value "UserContext"
@@ -34,33 +40,29 @@ const Navigation = () => {
 
 	return (
 		<Fragment>
-			<div className="navigation">
-				<Link className="logo-container" to="/">
+			<NavigationContainer>
+				<LogoContainer to="/">
 					<Logo className="logo" />
-				</Link>
+				</LogoContainer>
 
-				<div className="nav-links-container">
+				<NavLinks>
 					{/* Links behave like anchor tags */}
-					<Link className="nav-link" to="/shop">
-						SHOP
-					</Link>
+					<NavLink to="/shop">SHOP</NavLink>
 					{/* WE USE THE TERNARY OPERATOR TO RENDER THE SIGN OUT LINK */}
 					{/* If currentUser is true (aka not null) */}
 					{currentUser ? (
-						<span className="nav-link" onClick={signOutUser}>
+						<NavLink as="span" onClick={signOutUser}>
 							SIGN OUT
-						</span>
+						</NavLink>
 					) : (
-						<Link className="nav-link" to="/auth">
-							SIGN IN
-						</Link>
+						<NavLink to="/auth">SIGN IN</NavLink>
 					)}
 					<CartIcon />
-				</div>
+				</NavLinks>
 				{/* If both are T, render the second value
 				 i.e. <CartDropdown />	 */}
 				{isCartOpen && <CartDropdown />}
-			</div>
+			</NavigationContainer>
 			{/* Outlet allows us to render the nested route based on
 			the URL path extension we use */}
 			<Outlet />

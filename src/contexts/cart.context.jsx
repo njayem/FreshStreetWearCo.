@@ -120,8 +120,8 @@ export const CartProvider = ({ children }) => {
 	// Whenever the cartItems array changes, we want to update
 	// the cartCount
 	useEffect(() => {
-		const newCartCount = cartItems.reduce((cartTotal, cartItem) => {
-			return cartTotal + cartItem.quantity;
+		const newCartCount = cartItems.reduce((cartCount, cartItem) => {
+			return cartCount + cartItem.quantity;
 		}, 0);
 		setCartCount(newCartCount);
 	}, [cartItems]);
@@ -131,8 +131,8 @@ export const CartProvider = ({ children }) => {
 	// Whenever the cartItems array changes, we want to update
 	// the cartCount
 	useEffect(() => {
-		const newCartTotal = cartItems.reduce((total, cartItem) => {
-			return total + cartItem.quantity * cartItem.price;
+		const newCartTotal = cartItems.reduce((cartTotal, cartItem) => {
+			return cartTotal + cartItem.quantity * cartItem.price;
 		}, 0);
 		setCartTotal(newCartTotal);
 	}, [cartItems]);

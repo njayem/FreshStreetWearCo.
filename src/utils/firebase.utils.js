@@ -12,7 +12,16 @@ import {
 	onAuthStateChanged,
 } from "firebase/auth";
 
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+	getFirestore,
+	doc,
+	getDoc,
+	setDoc,
+	collection,
+	writeBatch,
+	query,
+	getDocs,
+} from "firebase/firestore";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -156,3 +165,58 @@ export const onAuthStateChangedListener = (callback) => {
 // AND RETURNS A REFERENCE TO THE USER DOCUMENT INSIDE OUR FIRESTORE DATABASE
 // WHICH CONTAINS THE user OBJECT DATA
 // ********* USER AUTHENTICATION & USER DOCUMENT RECAP *********
+
+// ********* 8. addCollectionAndDocuments *********
+export const addCollectionAndDocuments = async (
+	collectionKey,
+	objectsToAdd
+	// We can use field instead of directly using the property name
+	// to make this fucniton generic
+	// field
+) => {
+	// WE CREATE A COLLECTION REFERENCE
+	const collectionRef = collection(db, collectionKey);
+	// console.log(collectionRef);
+
+	// WE CREATE A BATCH
+	// A BATCH IS A WAY TO BATCH OUR CALLS TO THE FIRESTORE DATABASE
+	// SO THAT IF ANY OF OUR CALLS FAIL, NONE OF THEM WILL EXECUTE
+	// ATOMICITY --> ALL OR NOTHING
+	// WE CAN ALSO USE BATCHES TO PERFORM MULTIPLE OPERATIONS
+	// AT THE SAME TIME (WRITE, UPDATE, DELETE) AS A SINGLE TRANSACTION
+	const batch = writeBatch(db);
+
+	// WE LOOP THROUGH THE OBJECTS TO ADD ARRAY
+	// AND CREATE A NEW DOCUMENT REFERENCE
+	// FOR EACH OBJECT
+	objectsToAdd.forEach((object) => {
+		// WE CREATE A NEW DOCUMENT REFERENCE FOR EACH OBJECT (Category)
+		const docRef = doc(collectionRef, object.title.toLowerCase());
+
+		// Generic way to create a new document reference
+		// const docRef = doc(collectionRef, object[field].toLowerCase());
+
+		// WE ADD THE NEW DOCUMENT REFERENCE TO THE BATCH
+		batch.set(docRef, object);
+	});
+
+	// WE COMMIT THE BATCH
+	return await batch.commit();
+};
+// ********* 8. addCollectionAndDocuments *********
+
+// ********* 9. convertCollectionsSnapshotToMap *********
+export const getCategoriesAndDocuments = async () => {
+	const categoriesRef = collection(db, "categories");
+
+	const q = query(categoriesRef);
+	const querySnapshot = await getDocs(q);
+
+	const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+		const { title, items } = docSnapshot.data();
+		acc[title.toLowerCase()] = items;
+		return acc;
+	}, {});
+	return categoryMap;
+};
+// ********* 9. convertCollectionsSnapshotToMap *********
