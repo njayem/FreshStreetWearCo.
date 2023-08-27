@@ -19,6 +19,7 @@ import {
 	NavLinks,
 	NavLink,
 	LogoContainer,
+	Brand,
 } from "./navigation.styles.jsx";
 
 const Navigation = () => {
@@ -44,7 +45,7 @@ const Navigation = () => {
 				<LogoContainer to="/">
 					<Logo className="logo" />
 				</LogoContainer>
-
+				<Brand>FreshStreetWearCo.</Brand>
 				<NavLinks>
 					{/* Links behave like anchor tags */}
 					<NavLink to="/shop">SHOP</NavLink>

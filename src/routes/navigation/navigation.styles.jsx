@@ -12,8 +12,21 @@ export const NavigationContainer = styled.div`
 
 export const LogoContainer = styled(Link)`
 	height: 100%;
-	width: 70px;
-	padding: 25px;
+	width: 100px;
+	padding: 10px;
+	margin-bottom: 50px;
+`;
+
+export const Brand = styled.span`
+	font-size: 1.5rem;
+	color: darkgray;
+	&:hover {
+		color: black;
+	}
+	justify-self: center;
+	align-self: center;
+	margin-left: 500px;
+	display: flex;
 `;
 
 export const NavLinks = styled.div`
