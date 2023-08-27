@@ -24,8 +24,6 @@ To run the project:
 
 ![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/2-SignUp-SignIn.png)
 
-![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/3-Shop-Page.png)
-
 ![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/4-Hats-Page.png)
 
 ![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/5-Cart.png)
