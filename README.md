@@ -28,6 +28,8 @@ To run the project:
 
 ![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/Hats-Page.png)
 
+![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/Cart.png)
+
 ![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/Checkout.png)
 
 
