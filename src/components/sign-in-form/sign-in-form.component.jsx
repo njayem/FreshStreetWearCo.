@@ -52,7 +52,7 @@ const SignInForm = () => {
 	const signInWithGoogle = async () => {
 		// Deconstruct the user object from the response
 		await signInWithGooglePopup();
-
+		resetFormFields();
 		//setCurrentUser(user);
 	};
 	// ********* 00. resetFormFields *********
