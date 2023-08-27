@@ -19,10 +19,10 @@ To run the project:
   - Get the Total
  
 ## Preview
- 
-![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/SignUp-SignIn.png)
 
 ![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/Home.png)
+
+![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/SignUp-SignIn.png)
 
 ![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/Shop-Page.png)
 
