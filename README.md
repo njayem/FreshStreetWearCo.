@@ -8,3 +8,12 @@ To run the project:
 
 
 ## Overview of Project
+- FreshStreetWearCo. is a fullstack web app that allows users to browse the brand "FreshStreetWearCo.".
+- Features include:
+  - Profile Registration Form
+  - Sign-In/Sign-In with Google/Sign-Out
+  - Browse Different Clothing Categories
+  - View Cart Contents
+  - Go to Checkout
+  - Add/Remove Cart Contents
+  - Get the Total
