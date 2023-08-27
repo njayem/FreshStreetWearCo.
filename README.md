@@ -20,16 +20,16 @@ To run the project:
  
 ## Preview
 
-![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/Home.png)
+![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/1-Home.png)
 
-![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/SignUp-SignIn.png)
+![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/2-SignUp-SignIn.png)
 
-![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/Shop-Page.png)
+![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/3-Shop-Page.png)
 
-![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/Hats-Page.png)
+![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/4-Hats-Page.png)
 
-![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/Cart.png)
+![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/5-Cart.png)
 
-![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/Checkout.png)
+![image](https://github.com/njayem/FreshStreetWearCo./blob/main/Preview/6-Checkout.png)
 
 
