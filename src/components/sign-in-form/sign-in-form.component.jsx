@@ -1,22 +1,16 @@
-import { useState } from "react";
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
 	SignInContainer,
 	ButtonsContainer,
 } from "../sign-in-form/sign-in-form.styles.jsx";
-
 import FormInput from "../form-input/form-input.component.jsx";
-
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component.jsx";
-
 import {
-	createUserDocumentFromAuth,
 	signInWithGooglePopup,
 	signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase.utils";
 
-// Create a formFields state object to store the form field values
-// This is the initial state of the formFields object
 const initialFormFields = {
 	email: "",
 	password: "",
@@ -25,41 +19,17 @@ const initialFormFields = {
 const SignInForm = () => {
 	const [formFields, setFormFields] = useState(initialFormFields);
 	const { email, password } = formFields;
+	const navigate = useNavigate();
 
-	// We are using the useContext hook to get access to the value
-	// We then destruct the property we want from the value object
-	// const { setCurrentUser } = useContext(UserContext);
-
-	// ********* 0. resetFormFields *********
 	const resetFormFields = () => {
 		return setFormFields(initialFormFields);
 	};
-	// ********* 0. resetFormFields *********
 
-	// ********* 00. signInWithGoogle *********
-	// Run this function (ONCE) when the component mounts
-	// useEffect(() => {
-	// 	async function getRedirectResultFromAuth() {
-	// 		const response = await getRedirectResult(auth);
-	// 		if (response) {
-	// 			const userDocRef = await createUserDocumentFromAuth(response.user);
-	// 		}
-	// 	}
-	// }, []);
-
-	// We are using the signInWithGooglePopup function to
-	// sign in with Google and log the response to the console
 	const signInWithGoogle = async () => {
-		// Deconstruct the user object from the response
 		await signInWithGooglePopup();
 		resetFormFields();
-		//setCurrentUser(user);
 	};
-	// ********* 00. resetFormFields *********
 
-	// ********* 1. handleSubmit (Auth + DB Document) *********
-	// This is a GENERIC handleChange function that
-	// will work for ALL form fields
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
@@ -68,13 +38,9 @@ const SignInForm = () => {
 				email,
 				password
 			);
-			// Once we have the USER AUTH OBJECT from the response
-			// We call setCurrentUser and pass in the user object
-			// This will update the currentUser state in the UserContext
-			//setCurrentUser(user);
-			//console.log("setCurrentUser: ", user);
 
 			resetFormFields();
+			navigate("/shop");
 		} catch (error) {
 			switch (error.code) {
 				case "auth/invalid-email":
@@ -95,17 +61,11 @@ const SignInForm = () => {
 			}
 		}
 	};
-	// ********* 1. handleSubmit (Auth + DB Document) *********
 
-	// ********* 2. handleChange (state) *********
-	// This will be a GENERIC handleChange function that will
-	// update the formFields state object with the name and value
-	// of the input field that is being changed
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 		setFormFields({ ...formFields, [name]: value });
 	};
-	// ********* 2. handleChange (state) *********
 
 	return (
 		<SignInContainer>
@@ -122,7 +82,6 @@ const SignInForm = () => {
 						onChange: handleChange,
 					}}
 				/>
-
 				<FormInput
 					label="Password"
 					inputOptions={{
@@ -146,4 +105,5 @@ const SignInForm = () => {
 		</SignInContainer>
 	);
 };
+
 export default SignInForm;
